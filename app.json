@@ -55,6 +55,6 @@
           "description": "Coma separated list of unwanted metadata items (es. Scontrol,Settings,CustomLabels)",
           "required" : false,
           "value":""
-        },
+        }
     }
 }
