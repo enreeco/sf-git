@@ -1,0 +1,60 @@
+{
+  "name": "SF-Git",
+  "description": "Git all Salesforce Metadata",
+  "repository": "https://github.com/enreeco/sf-git",
+  "logo": "https://avatars3.githubusercontent.com/u/2393696?v=3&s=460",
+  "keywords": ["salesforce", "metadata", "git"],
+  "website": "https://enree.co/",
+  "env": {
+        "SF_API_VERSION": {
+          "description": "Salesforce API version",
+          "required" : true,
+          "value":"35"
+        },
+        "SF_USERNAME": {
+          "description": "Salesforce integration username",
+          "required" : true,
+          "value":""
+        },
+        "SF_PASSWORD": {
+          "description": "Salesforce integration password (+token)",
+          "required" : true,
+          "value":""
+        },
+        "REPO_URL": {
+          "description": "Git remote respository URL (es. https://username:password@github.com/magicdev/reponame)",
+          "required" : true,
+          "value":""
+        },
+        "REPO_USER_NAME": {
+          "description": "Git commit user's name",
+          "required" : true,
+          "value":""
+        },
+        "REPO_USER_Email": {
+          "description": "Git commit user's email",
+          "required" : true,
+          "value":""
+        },
+        "GIT_IGNORE": {
+          "description": "Coma separated list of unwanted file types",
+          "required" : false,
+          "value":"__MACOSX,.DS_Store"
+        },
+        "REPO_COMMIT_MESSAGE": {
+          "description": "Commit's message",
+          "required" : true,
+          "value":"Automatic commit (sfgit)"
+        },
+        "REPO_README": {
+          "description": "Optional README.md content",
+          "required" : false,
+          "value":""
+        },
+        "EXCLUDE_METADATA": {
+          "description": "Coma separated list of unwanted metadata items (es. Scontrol,Settings,CustomLabels)",
+          "required" : false,
+          "value":""
+        },
+    }
+}

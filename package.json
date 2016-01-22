@@ -1,0 +1,39 @@
+{
+  "name": "SF-Git",
+  "description": "Git commit your SF org",
+  "version": "0.1.0",
+  "homepage": "https://github.com/enreeco/sf-git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enreeco/sf-git.git"
+  },
+  "author": {
+    "name": "Enrico Murru",
+    "email": "enricomurru@gmail.com",
+    "url": "http://about.me/enreeco"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/enreeco/sf-git/raw/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": "5.4.*"
+  },
+  "scripts":{
+    "start" : "node app.js",
+    "start-local" : "nf start -s"
+  },
+  "dependencies" : {
+    "gift": "0.7.*",
+    "jsforce":"1.5.*",
+    "async":"1.5.*",
+    "fstream":"1.0.*",
+    "adm-zip": "0.4.*",
+    "express" : "4.13.*"
+  },
+  "devDependencies": {
+    "foreman" : "*"
+  }
+}
