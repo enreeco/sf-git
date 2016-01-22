@@ -13,9 +13,9 @@ The app is ment to be used as a scheduled job (https://devcenter.heroku.com/arti
 
 Install the *Heroku Scheduler* add-on and configure a new job:
 
-![alt tag](https://raw.githubusercontent.com/enreeco/sf-git/stuff/heroku_scheduler.png)
+![Heroku Scheduler](https://raw.githubusercontent.com/enreeco/sf-git/master/stuff/heroku_scheduler.png)
 
-** If you want notifications after a run, you need to implement your own bin's job (see the *doAll* callback) **
+**If you want notifications after a run, you need to implement your own bin's job (see the *doAll* callback)**
 
 ## App Flow
 
