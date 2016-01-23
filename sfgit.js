@@ -33,7 +33,7 @@ module.exports = {
 
         
 
-        status.sfConnection.metadata.pollTimeout = 60000;
+        status.sfConnection.metadata.pollTimeout = 120000;
 
         var deleteFolderRecursive = function(path, exclude, doNotDeleteRoot) {
           if( fs.existsSync(path) ) {
