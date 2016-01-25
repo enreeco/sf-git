@@ -1,4 +1,8 @@
 'use strict';
+/*
+ * This web service is only used to create a web process on Heroku.
+ * Can be completely removed or simply replaced with anything else.
+ */
 var express = require('express');
 var app = express();
 app.get('/', function(req,res){

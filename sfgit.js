@@ -6,6 +6,9 @@ var jsforce = require('jsforce');
 var async = require('async');
 var AdmZip = require('adm-zip');
 
+//muts all logs
+var MUTE = false;
+
 /*
  * Creates the return object for the mainCallback
  */
@@ -16,11 +19,33 @@ function createReturnObject(err, msg){
     };
 }
 
-var MUTE = false;
+/*
+ * Sync Deletes a folder recursively
+ * @path: folder path
+ * @exclude: exclude a certain folder's name
+ * @doNotDeleteRoot: do not delete root folder
+ */
+var deleteFolderRecursive = function(path, excludeFolder, doNotDeleteRoot) {
+  if( fs.existsSync(path) ) {
+    fs.readdirSync(path).forEach(function(file,index){
+      var curPath = path + "/" + file;
+      if(fs.lstatSync(curPath).isDirectory()) { // recurse
+        if(!excludeFolder || file != exclude){
+            deleteFolderRecursive(curPath, exclude);
+        }
+      } else { // delete file
+        fs.unlinkSync(curPath);
+      }
+    });
+    if(!doNotDeleteRoot) fs.rmdirSync(path);
+  }
+};
+
 
 module.exports = {
     doAll : function(mainCallback){
 
+        //status object
         var status = {
             tempPath : '/tmp/',
             zipPath : "zips/",
@@ -30,27 +55,10 @@ module.exports = {
             sfLoginResult : null,
             types : {},
         };
+        //polling timeout of the SF connection
+        status.sfConnection.metadata.pollTimeout = process.env.SF_METADATA_POLL_TIMEOUT || 120000;
 
-        
-
-        status.sfConnection.metadata.pollTimeout = 120000;
-
-        var deleteFolderRecursive = function(path, exclude, doNotDeleteRoot) {
-          if( fs.existsSync(path) ) {
-            fs.readdirSync(path).forEach(function(file,index){
-              var curPath = path + "/" + file;
-              if(fs.lstatSync(curPath).isDirectory()) { // recurse
-                if(!exclude || file != exclude){
-                    deleteFolderRecursive(curPath, exclude);
-                }
-              } else { // delete file
-                fs.unlinkSync(curPath);
-              }
-            });
-            if(!doNotDeleteRoot) fs.rmdirSync(path);
-          }
-        };
-
+        //creates all the main folders (temp folder, zip folder and git clone folder)
         try{
             if(!fs.existsSync(status.tempPath)){
                 fs.mkdirSync(status.tempPath);
@@ -65,8 +73,7 @@ module.exports = {
             return mainCallback && mainCallback(ex);
         }
 
-        
-
+        //asyncs jobs called sequentially (all the tasks to be done)
         async.series({
             //login to SF
             sfLogin : function(callback){
