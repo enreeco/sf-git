@@ -25,12 +25,12 @@ function createReturnObject(err, msg){
  * @exclude: exclude a certain folder's name
  * @doNotDeleteRoot: do not delete root folder
  */
-var deleteFolderRecursive = function(path, excludeFolder, doNotDeleteRoot) {
+var deleteFolderRecursive = function(path, exclude, doNotDeleteRoot) {
   if( fs.existsSync(path) ) {
     fs.readdirSync(path).forEach(function(file,index){
       var curPath = path + "/" + file;
       if(fs.lstatSync(curPath).isDirectory()) { // recurse
-        if(!excludeFolder || file != exclude){
+        if(!exclude || file != exclude){
             deleteFolderRecursive(curPath, exclude);
         }
       } else { // delete file
