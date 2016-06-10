@@ -27,8 +27,8 @@
   },
   "dependencies" : {
     "gift": "0.7.*",
-    "jsforce":"1.5.*",
-    "async":"1.5.*",
+    "jsforce":"1.6.*",
+    "async":"2.0.0-rc.6",
     "fstream":"1.0.*",
     "adm-zip": "0.4.*",
     "express" : "4.13.*"
