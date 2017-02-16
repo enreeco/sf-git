@@ -2,6 +2,8 @@
 
 Author: Enrico Murru (http://enree.co)
 
+Blog: http://blog.enree.co/2016/01/salesforce-git-automate-metadata-backup.html
+
 
 Deploy all Salesforce Org's metadata into a git repository
 
