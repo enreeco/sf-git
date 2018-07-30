@@ -6,6 +6,11 @@
   "keywords": ["salesforce", "metadata", "git"],
   "website": "https://enree.co/",
   "env": {
+        "SF_LOGIN_URL": {
+          "description": "Salesforce login URL",
+          "required" : false,
+          "value":"https://login.salesforce.com"
+        },
         "SF_API_VERSION": {
           "description": "Salesforce API version",
           "required" : true,
