@@ -45,16 +45,20 @@ var deleteFolderRecursive = function(path, exclude, doNotDeleteRoot) {
 module.exports = {
     doAll : function(mainCallback){
 
+        var loginUrl = process.env.SF_LOGIN_URL || "https://login.salesforce.com";
         //status object
         var status = {
             tempPath : '/tmp/',
             zipPath : "zips/",
             repoPath: "repos/",
             zipFile : "_MyPackage"+Math.random()+".zip",
-            sfConnection : (new jsforce.Connection()),
+            sfConnection : (new jsforce.Connection({
+                loginUrl: loginUrl
+            })),
             sfLoginResult : null,
             types : {},
         };
+        if(!MUTE) console.log('SF CONNECTION WITH: ' + loginUrl);
         //polling timeout of the SF connection
         status.sfConnection.metadata.pollTimeout = process.env.SF_METADATA_POLL_TIMEOUT || 120000;
 

@@ -19,21 +19,21 @@
     }
   ],
   "engines": {
-    "node": "5.4.*"
+    "node": "8.11.*"
   },
-  "scripts":{
-    "start" : "node app.js",
-    "start-local" : "nf start -s"
+  "scripts": {
+    "start": "node app.js",
+    "start-local": "nf start -s"
   },
-  "dependencies" : {
-    "gift": "0.7.*",
-    "jsforce":"1.6.*",
-    "async":"2.0.0-rc.6",
-    "fstream":"1.0.*",
+  "dependencies": {
     "adm-zip": "0.4.*",
-    "express" : "4.13.*"
+    "async": "2.0.0-rc.6",
+    "express": "^4.16.3",
+    "fstream": "1.0.*",
+    "gift": "0.7.*",
+    "jsforce": "^1.9.0"
   },
   "devDependencies": {
-    "foreman" : "*"
+    "foreman": "*"
   }
 }
