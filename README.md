@@ -35,7 +35,7 @@ The app follows the following flow:
 ## Env. Variables
 
 This is the list of the supported environment variabled:
-
+* SF_LOGIN_URL: Salesforce login URL
 * SF_API_VERSION: Salesforce API version
 * SF_USERNAME: Salesforce integration username
 * SF_PASSWORD: Salesforce integration password (+token)
